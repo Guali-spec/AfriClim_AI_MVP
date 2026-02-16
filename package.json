@@ -1,0 +1,24 @@
+{
+  "name": "africlim_ai_mvp",
+  "version": "1.0.0",
+  "description": "AfriClim AI MVP est une plateforme d’évaluation des risques climatiques basée sur l’intelligence artificielle. Elle analyse des données météo en temps réel pour générer des scores de risque localisés, estimer l’impact économique potentiel et proposer des recommandations concrètes afin de renforcer la résilience des villes africaines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guali-spec/AfriClim_AI_MVP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Guali-spec/AfriClim_AI_MVP/issues"
+  },
+  "homepage": "https://github.com/Guali-spec/AfriClim_AI_MVP#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
