@@ -13,19 +13,19 @@ export default function RiskCard({ risk }: Props) {
   const getLevelColor = () => {
     switch (risk.level) {
       case "LOW":
-        return "bg-green-100 text-green-600 border-green-200";
+        return "bg-emerald-100 text-emerald-700 border-emerald-200";
       case "MODERATE":
-        return "bg-yellow-100 text-yellow-600 border-yellow-200";
+        return "bg-amber-100 text-amber-700 border-amber-200";
       case "HIGH":
-        return "bg-red-100 text-red-600 border-red-200";
+        return "bg-rose-100 text-rose-700 border-rose-200";
       default:
         return "bg-gray-100 text-gray-600 border-gray-200";
     }
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-2xl border border-slate-200 p-8">
-      <div className="flex flex-col md:flex-row gap-12 items-center">
+    <div className="bg-white/80 backdrop-blur border border-white/60 rounded-2xl shadow-[0_20px_60px_rgba(15,23,42,0.12)] p-8 transition-transform duration-300 hover:-translate-y-1">
+      <div className="flex flex-col md:flex-row gap-10 items-center">
 
         {/* Gauge */}
         <div className="relative w-64 h-64 flex items-center justify-center">
@@ -46,13 +46,19 @@ export default function RiskCard({ risk }: Props) {
               cx="50"
               cy="50"
               r="45"
-              stroke="red"
+              stroke="currentColor"
               strokeWidth="8"
               fill="transparent"
               strokeDasharray={circumference}
               strokeDashoffset={offset}
               strokeLinecap="round"
-              className="transition-all duration-700"
+              className={`transition-all duration-700 ${
+                risk.level === "HIGH"
+                  ? "text-rose-500"
+                  : risk.level === "MODERATE"
+                  ? "text-amber-500"
+                  : "text-emerald-500"
+              }`}
             />
           </svg>
 
@@ -60,8 +66,8 @@ export default function RiskCard({ risk }: Props) {
             <span className="text-6xl font-black text-slate-900">
               {risk.score}
             </span>
-            <span className="text-slate-400 text-xs uppercase">
-              Score / 100
+            <span className="text-slate-400 text-xs uppercase tracking-widest">
+              Score sur 100
             </span>
           </div>
         </div>
@@ -71,12 +77,12 @@ export default function RiskCard({ risk }: Props) {
           <div
             className={`px-4 py-2 rounded-full text-sm font-bold border inline-flex items-center gap-2 ${getLevelColor()}`}
           >
-            {risk.level} Risk Level
+            Niveau de risque {risk.level}
           </div>
 
           <p className="text-slate-600">
-            This score reflects the current climate exposure based on temperature,
-            rainfall, and humidity analysis.
+            Ce score synthetise la temperature, la pluviometrie et l'humidite pour
+            estimer l'exposition climatique actuelle.
           </p>
         </div>
       </div>

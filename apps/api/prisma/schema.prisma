@@ -1,13 +1,28 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  
-}
+model Analysis {
+  id            Int      @id @default(autoincrement())
+  city          String
+  country       String
 
-model HealthCheck {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+  temperature   Float
+  rainfall      Float
+  humidity      Float
+
+  riskScore     Int
+  riskLevel     String
+
+  minLoss       Float
+  maxLoss       Float
+
+  recommendations Json
+
+  createdAt     DateTime @default(now())
 }

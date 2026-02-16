@@ -18,8 +18,8 @@ export const mockImpact: ImpactEstimate = {
 
 export const mockRecommendations: RecommendationResult = {
   items: [
-    "Reinforce drainage systems",
-    "Prepare emergency response teams",
-    "Inform local communities",
+    "Renforcer les systemes de drainage",
+    "Preparer les equipes d'urgence",
+    "Informer les communautes locales",
   ],
 };
